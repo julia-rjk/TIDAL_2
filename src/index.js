@@ -1,5 +1,4 @@
 const Form = require("./Model/Form");
-const FormElement = require("./Model/FormElement");
 const TextInput = require("./Model/TextInput");
 const FormView = require("./View/FormView");
 
