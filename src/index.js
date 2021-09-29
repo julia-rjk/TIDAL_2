@@ -6,6 +6,11 @@ function main(){
 
     
     let form = new FormController("Nom", "/index.php", "get");
+
+
+
+
+    
     if(form.name != undefined){
         let formView = new FormView(form)
         if(formView.name != -1){

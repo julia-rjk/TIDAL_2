@@ -8,9 +8,7 @@ class FormView{
 
     getHTML(){
         let formHTML = "<form name='"+ this.form.name+"' action='"+ this.form.action+"' method='"+ this.form.method+"'>"
-
         for (let i in this.form.inputs) {
-
             let type = this.form.inputs[i].constructor.name;
             switch(type){
                 case 'TextInput':
