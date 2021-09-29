@@ -3,13 +3,15 @@ const Form = require("../Model/Form");
 class FormController{
 
     constructor(name, action, method){
-        // VERIFIER SI NAME EGALE A STR
-
-        // VERIFIER SI ACTION EGALE URL VALABLE
-        
-        // VERIFIER SI LA METHOD EST EGALE A GET OU POST ETC
-        this.form = new Form(name, action, method);
-        return this.form
+        let methodAllowed = ['get','post','put']
+        if(typeof(name) != 'string' || typeof(action) != 'string' || typeof(method)!= 'string' || methodAllowed.indexOf(method.toLowerCase()) == -1){ 
+            console.error("Error when creating form, please verify parameters.")
+            return -1
+        }
+        else{
+            this.form = new Form(name, action, method);
+            return this.form
+        }
     }
 
 

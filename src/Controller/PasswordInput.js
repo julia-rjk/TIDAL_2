@@ -1,6 +1,6 @@
-const TextInput = require("../Model/TextInput");
+const PasswordInput = require("../Model/PasswordInput");
 
-class TextInputController{
+class PasswordInputController{
     constructor( name, placeholder, min, max, isEnabled, isRequired ) {
         // On vérifie si name et placeholder sont des string
         // Si min et max sont des nombres
@@ -9,16 +9,16 @@ class TextInputController{
             return -1
         }
         else{
-            this.textInput = new TextInput( name, placeholder, min, max, isEnabled, isRequired )
-            return this.textInput;
+            this.passwordInput = new PasswordInput( name, placeholder, min, max, isEnabled, isRequired )
+            return this.passwordInput;
         }
     }
 
-    getTextInput(){
-        return this.textInput;
+    getPasswordInput(){
+        return this.passwordInput;
     }
 
 
 }
 
-module.exports = TextInputController;
+module.exports = PasswordInputController;
