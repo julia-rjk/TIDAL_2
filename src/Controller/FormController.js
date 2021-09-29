@@ -32,7 +32,7 @@ class FormController{
 
     addInput(input){
         // VERIFIER l INPUT 
-        this.inputs.push(input)
+        this.form.addInput(input)
     }
 
 }

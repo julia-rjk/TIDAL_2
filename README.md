@@ -1,3 +1,3 @@
 # TIDAL_2
 
-node index.js
+node src/index.js

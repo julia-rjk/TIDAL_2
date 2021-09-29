@@ -5,12 +5,24 @@ const TextInput = require("./Model/TextInput");
 const FormView = require("./View/FormView");
 
 function main(){
-    let form = new FormController("Nom", "/index.php", "GET");
 
-    let formview = new FormView(form)
-    let formElement = new TextInputController("name","test",10,100,true,true)
-    form.addInput(formElement)
-    console.log(formview.generateFile())
+    
+    let form = new FormController("Nom", "/index.php", "GET");
+    if(form){
+        let formview = new FormView(form)
+        let formElement = new TextInputController(516763,"test",10,100,true,true)
+
+        if(formElement){
+
+
+            form.addInput(formElement)
+            formview.generateFile()
+        }else console.log("error")
+
+    }else{
+        console.log("Error")
+    }
+
 }
 
 main()
