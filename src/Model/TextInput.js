@@ -1,11 +1,14 @@
 class TextInput{
-    constructor( name, placeholder, min, max, isEnabled, isRequired ){
+    NB_CHILD = 0;
+    ID_PREFIX = "textinput";
+    constructor( name, placeholder, minLength, maxLength, disabled, required ){
+        this.id = (++this.NB_CHILD).toString() + this.ID_PREFIX;
         this.name = name;
         this.placeholder = placeholder;
-        this.min = min;
-        this.max = max;
-        this.isEnabled = isEnabled;
-        this.isRequired = isRequired;
+        this.minLength = minLength;
+        this.maxLength = maxLength;
+        this.disabled = disabled;
+        this.required = required;
     }
 }
 

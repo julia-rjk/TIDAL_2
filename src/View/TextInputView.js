@@ -1,13 +1,20 @@
 class TextInputView{
-    constructor(){}
+    constructor(textInput){
+        if(textInput instanceof TextInput) {
+            this.htmlElement = document.createElement("input");
+            this.htmlElement.setAttribute("type", "text");
+            this.htmlElement.setAttribute("id", textInput.id);
+            this.htmlElement.setAttribute("name", textInput.name);
+            this.htmlElement.setAttribute("placeholder", textInput.placeholder);
+            this.htmlElement.setAttribute("maxLength", textInput.maxLength);
+            this.htmlElement.setAttribute("minLength", textInput.minLength);
+            this.htmlElement.setAttribute("disabled", textInput.disabled);
+            this.htmlElement.setAttribute("required", textInput.required);
+        }
+    }
 
-    html(textInput){
-
-        let html = '<label for="'+ textInput.name+'">'+ textInput.name+'</label><input type="text" id="'+textInput.name+'" name="'+textInput.name+'" max="'+ textInput.max+'" min="'+ textInput.min+'"'
-        if( ! textInput.isEnabled) html +=" disabled"
-        if( textInput.isRequired) html +=" required"
-        html +=">"
-        return html
+    html() {
+        return this.htmlElement.innerHTML;
     }
 }
 
