@@ -1,20 +1,21 @@
+const TextInput = require('../Model/TextInput')
+
 class TextInputView{
     constructor(textInput){
         if(textInput instanceof TextInput) {
-            this.htmlElement = document.createElement("input");
-            this.htmlElement.setAttribute("type", "text");
-            this.htmlElement.setAttribute("id", textInput.id);
-            this.htmlElement.setAttribute("name", textInput.name);
-            this.htmlElement.setAttribute("placeholder", textInput.placeholder);
-            this.htmlElement.setAttribute("maxLength", textInput.maxLength);
-            this.htmlElement.setAttribute("minLength", textInput.minLength);
-            this.htmlElement.setAttribute("disabled", textInput.disabled);
-            this.htmlElement.setAttribute("required", textInput.required);
+            this.textInput = textInput;
         }
     }
 
     html() {
-        return this.htmlElement.innerHTML;
+        if(this.textInput !== null && this.textInput !== undefined)
+            return `<input type='text' id='${this.textInput.id}' `+
+                `name=${this.textInput.name ?? ''} ` +
+                `placeholder=${this.textInput.placeholder ?? ''} ` +
+                `minLength=${this.textInput.minLength ?? ''} ` +
+                `maxLength=${this.textInput.maxLength ?? ''} ` +
+                `${this.textInput.disabled ? " disabled " : ''} ` +
+                `required=${this.textInput.required}>`
     }
 }
 
