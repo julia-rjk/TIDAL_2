@@ -10,8 +10,8 @@ class OptionInputView{
     html() {
         if(this.optionInput !== null && this.optionInput !== undefined)
             return `<option `
-                `name=${this.optionInput.name ?? ''} ` +
-                `placeholder=${this.optionInput.placeholder ?? ''} ` + `>` + this.optionInput.value +"</option>"
+                `name='${this.optionInput.name ?? "'"}' ` +
+                `placeholder='${this.optionInput.placeholder ?? "'"}' ` + `>` + this.optionInput.value +"</option>"
     }
 }
 
