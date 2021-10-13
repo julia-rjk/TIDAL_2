@@ -28,7 +28,6 @@ class Database{
 
         this.modelDB = {}
         this.modelDB[this.form.name] = "VARCHAR(50)"
-        // TODO BOUCLE DES INPUTS 
 
         for(let item in this.form.inputs){
 
@@ -46,7 +45,7 @@ class Database{
                 case 'Label':
                     this.modelDB[item.name] = "VARCHAR(50)"
                 default:
-                    // ...
+                    this.modelDB[item.name] = "VARCHAR(50)"
             }
 
         }
@@ -74,6 +73,30 @@ class Database{
 
     addValues(values){
 
+        let query = `INSERT INTO ${this.form.name} (`
+
+        for(let value in Object.keys(this.modelDB)){
+
+            query += ` ${value} ${this.modelDB[value]}`
+
+        }
+
+        query += `VALUES(`
+        for(let value in values){
+
+            query += ` '${value}''`
+
+        }
+
+        client.query(query).then(res => {
+            console.log('Table is successfully created');
+        })
+        .catch(err => {
+            console.error(err);
+        })
+        .finally(() => {
+            client.end();
+        });
     }
 
 }
