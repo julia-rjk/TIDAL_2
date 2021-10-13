@@ -1,3 +1,4 @@
+const TextInput = require('../Model/TextInput');
 class TextInputView{
     constructor(textInput){
         if(textInput instanceof TextInput) {

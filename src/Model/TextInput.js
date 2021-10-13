@@ -1,8 +1,8 @@
 class TextInput{
-    NB_CHILD = 0;
-    ID_PREFIX = "textinput";
+    NB_ELEMENTS_CREATED = 0;
+    ID_PREFIX = "textInput";
     constructor( name, placeholder, minLength, maxLength, disabled, required ){
-        this.id = (++this.NB_CHILD).toString() + this.ID_PREFIX;
+        this.id = this.ID_PREFIX + (++this.NB_ELEMENTS_CREATED).toString();
         this.name = name;
         this.placeholder = placeholder;
         this.minLength = minLength;

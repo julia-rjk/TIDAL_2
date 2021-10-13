@@ -1,4 +1,5 @@
 const TextInputView = require("./TextInputView");
+const TextAreaInputView = require("./TextAreaInputView");
 var fs = require('fs');
 const Form = require("../Model/Form");
 class FormView{
@@ -10,7 +11,7 @@ class FormView{
                     case 'TextInput':
                         this.htmlElement.addChild(new TextInputView(item).htmlElement);
                     case 'TextAreaInput':
-                        this.htmlElement.addChild(new TextAreaInput(item).htmlElement);
+                        this.htmlElement.addChild(new TextAreaInputView(item, form.id).htmlElement);
                     case 'SelectInput':
                         this.htmlElement.addChild(new SelectInput(item).htmlElement);
                     case 'PasswordInput':
