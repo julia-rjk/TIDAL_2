@@ -3,7 +3,7 @@ const TextAreaInputView = require("./TextAreaInputView");
 const SelectInputView = require("./SelectInputView");
 const PasswordInputView = require("./PasswordInputView");
 const MailInputView = require("./MailInputView");
-const LabelInputView = require("./LabelInputView");
+const LabelView = require("./LabelView");
 var fs = require('fs');
 
 class FormView {
@@ -37,7 +37,7 @@ class FormView {
                     formHTML += new MailInputView(inputController).html();
                     break;
                 case 'Label':
-                    formHTML += new LabelInputView(inputController).html();
+                    formHTML += new LabelView(inputController).html();
                     break;
                 default:
                     formHTML += ""

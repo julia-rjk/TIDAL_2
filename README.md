@@ -1,18 +1,100 @@
-# TIDAL_2
+# TIDAL - Projet Framework 
 
-node src/index.js
+## Installation
 
-
-### Postgresq
-Port = (5432)
+### Mise en place de postgresql
+```
 sudo apt-get install postgresql
 sudo service postgresql start
-sudo -u postgres createuser username
-sudo -u postgres createdb dbname
-sudo -u postgres psql
-grant all privileges on database dbname to username
+sudo -u postgres
+psql
+CREATE USER <your_username>
+CREATE DB <your_db_name>
+GRANT ALL PRIVILEGES ON DATABASE <your_db_name> TO <your_username>
+``` 
 
-Probleme de mise en place, expliquer pourquoi on l'a fait comme ça, les autres choix possibles
-Pas tant la réalisation, les objectifs, répartition des rôles
+## Utilisation
 
-ds technique du web, generation client, generation serveur, asynchrone, session php
+```
+node src/index.js
+```
+
+## Gestion du projet
+
+### Explication du projet
+* Objectifs : 
+    * Permettre d'automatiser la création du formulaire
+    * Géneration d'HTML
+    * Création automatique de la base de donnée
+    * Mise en place des routes pour pousser les données en BDD
+    * Suivre le modèle MVC
+
+* Pourquoi ce choix ? : 
+    * NodeJS permet de facilier la création d'un côté serveur et client, ayant lui-même un vaste choix en terme de librairies qui nous permettent d'aboutir à notre projet.
+    * Utilisation du JSON qui est un type de donnée facilement manipulable notamment avec NodeJS
+
+* Autres choix possibles : 
+    * Mise en place en TypeScript
+    * Créer un composant Angular qui pourra être utilisé et configurer pour générer un formulaire personnalisé.
+
+
+### Conception
+* Fournir au framework les données
+	* types d'input et validateurs associés
+	* format JSON
+* Classes JS pour chaque input
+* Validateurs définis en JS reliés aux input
+* Génération de l'HTML en fonction des différents input
+
+### Modèles : 
+
+---
+Obligatoire : 
+* Form ( name, action,  method )
+* TextInput ( name, placeholder, min, max, isEnabled, isRequired )
+* PasswordInput ( name, placeholder, min, max, isEnabled, isRequired )
+* MailInput ( name, placeholder, min, max, isEnabled, isRequired  )
+
+* TextAreaInput ( name, placeholder, rows, cols, min, max, isEnabled, isRequired )
+* LabelInput ( name, value, placeholder)
+* SelectInput ( name, options = [ OptionInput ] )
+* OptionInput ( selectID (?), name, value)
+
+---
+Facultatif : 
+* RangeInput ( name, value  ) // <input type="range" id="a" name="a" value="50">
+* NumberInput ( name, value )
+* DataListInput ( name, list = [ OptionInput ])
+* https://www.w3schools.com/tags/tag_input.asp
+
+### Cadre d'utilisation
+
+* Implémentation dans un container nodeJS
+* Librairie nodeJS
+
+### Répartition des rôles
+
+La répartition des rôles s'est fait de manière plutôt agile. 
+Ceux qui maîtrisait le plus les compétences en JS / NodeJS se chargaient 
+de définir le cadre du projet.
+Nom | Rôle
+------ | ------
+Angelo | Mise en place des controllers et View, aide à la conception
+Bastien | Amélioration des controllers, aide à la conception
+Guillaume | Amélioration des Views et mise en place des tests, aide à la conception
+Julia  | Gestion du projet, modèle MVC, aide à la conception
+
+
+### Problèmes rencontrés
+* Technique : 
+    * Changement des techniques utilisés dans le projet passage du TypeScript en NodeJS
+
+* Gestion du projet : 
+    *
+
+### Résulat final
+* Ce qui fonctionne :
+    * 
+* Améliorations possibles
+    * 
+

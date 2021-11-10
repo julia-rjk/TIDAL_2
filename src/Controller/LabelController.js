@@ -1,22 +1,22 @@
-const LabelInput = require("../Model/LabelInput");
+const Label = require("../Model/Label");
 
-class LabelInputController{
+class LabelController{
     constructor(  name, value, placeholder ) {
         // On vérifie si name et placeholder sont des string
         // Si min et max sont des nombres
         // Si isEnable et isRequired sont des booléens
         if(typeof(name) != "string" ) { return -1}
         else{
-            this.LabelInput = new LabelInput( name, value, placeholder )
-            return this.LabelInput;
+            this.Label = new Label( name, value, placeholder )
+            return this.Label;
         }
     }
 
-    getLabelInput(){
-        return this.LabelInput;
+    getLabel(){
+        return this.Label;
     }
 
 
 }
 
-module.exports = LabelInputController;
+module.exports = LabelController;
