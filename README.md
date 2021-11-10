@@ -1,18 +1,52 @@
 # TIDAL_2
 
 node src/index.js
+## Installation
 
-
-### Postgresq
-Port = (5432)
+### Mise en place de postgresql
+```
 sudo apt-get install postgresql
 sudo service postgresql start
-sudo -u postgres createuser username
-sudo -u postgres createdb dbname
-sudo -u postgres psql
-grant all privileges on database dbname to username
+sudo -u postgres
+psql
+CREATE USER <your_username>
+CREATE DB <your_db_name>
+GRANT ALL PRIVILEGES ON DATABASE <your_db_name> TO <your_username>
+``` 
 
-Probleme de mise en place, expliquer pourquoi on l'a fait comme ça, les autres choix possibles
-Pas tant la réalisation, les objectifs, répartition des rôles
+## Utilisation
 
-ds technique du web, generation client, generation serveur, asynchrone, session php
+```
+node src/index.js
+```
+
+## Gestion du projet
+
+### Explication du projet
+* Objectifs : 
+    * Permettre d'automatiser la création du formulaire
+    * Géneration d'HTML
+    * Création automatique de la base de donnée
+
+* Pourquoi ce choix ? : 
+    * 
+
+* Autres choix possibles : 
+    * 
+
+### Répartition des rôles
+
+
+### Problèmes rencontrés
+* Technique : 
+    * Changement des techniques utilisés dans le projet passage du TypeScript en NodeJS
+
+* Gestion du projet : 
+    *
+
+### Résulat final
+* Ce qui fonctionne :
+    * 
+* Améliorations possibles
+    * 
+
