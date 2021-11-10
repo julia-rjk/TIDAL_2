@@ -41,7 +41,7 @@ function createForm(){
             let formView = new FormView(form)
             formView.generateFile() 
             // init de la base
-            db = new Database('localhost', 5432 , 'postgres', 'postgres', 'framework')
+            
             db.generateDatabase(form)
     }
     
@@ -52,6 +52,6 @@ function createForm(){
 
 var server = app.listen(8081, function () {
     createForm();
-
+   db = new Database('localhost', 5432 , 'postgres', 'postgres', 'framework')
    console.log("Example app listening at http://%s:%s", 'localhost', 8081)
 })
