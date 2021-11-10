@@ -3,7 +3,9 @@ class ScriptView{
         this.form = form;
     }
 
-    html()
+    html() {
+        
+    }
 
 }
 
