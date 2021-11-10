@@ -1,10 +1,9 @@
-class Label{
+class Label {
     static NB_CREATED = 0;
     static ID_PREFIX = "label";
-    constructor( name, value, placeholder){
+    constructor(inputName, value) {
         this.id = Label.ID_PREFIX + (++Label.NB_CREATED).toString();
-        this.name = name;
-        this.placeholder = placeholder;
+        this.inputName = inputName;
         this.value = value;
     }
 }

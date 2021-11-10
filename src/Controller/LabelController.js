@@ -1,18 +1,16 @@
 const Label = require("../Model/Label");
 
-class LabelController{
-    constructor(  name, value, placeholder ) {
-        // On vérifie si name et placeholder sont des string
-        // Si min et max sont des nombres
-        // Si isEnable et isRequired sont des booléens
-        if(typeof(name) != "string" ) { return -1}
-        else{
-            this.Label = new Label( name, value, placeholder )
+class LabelController {
+    constructor(inputName, value,) {
+        // On vérifie si inputName est une string
+        if (typeof (inputName) != "string") { return -1 }
+        else {
+            this.Label = new Label(inputName, value)
             return this.Label;
         }
     }
 
-    getLabel(){
+    getLabel() {
         return this.Label;
     }
 
