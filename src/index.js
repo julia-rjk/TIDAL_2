@@ -21,9 +21,10 @@ app.get('/example', function(request, response) {
     response.sendFile(path.join(__dirname, "..") + "/newfile.html")
 });
 app.post('/', function(request, response) {
+    console.log(request.body)
     // Appel de la base de donnée
     // Envoie des données du formulaires
-    db.addValues(request.body.json)
+    db.addValues(request.body)
 });
 
 
@@ -39,10 +40,12 @@ function createForm(){
             // form.addInput(new TextAreaInput("516763","test",10,100,true,true))
             let formView = new FormView(form)
             formView.generateFile() 
+            // init de la base
+            db = new Database('localhost', 5432 , 'postgres', 'postgres', 'framework')
+            db.generateDatabase(form)
     }
     
-    // init de la base
-    db = new Database('localhost', 5432 , 'postgres', 'postgres', 'framework', form)
+   
 
 }
 
