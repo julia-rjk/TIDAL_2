@@ -15,6 +15,7 @@ class FormView {
     getHTML() {
         let formHTML = "<form name='" + this.form.name + "' action='" + this.form.action + "' method='" + this.form.method + "'>"
 
+        formHTML +=  `<input name='form_name' value='${this.form.name}' hidden>`
 
         for (let inputController of this.form.inputs) {
 
@@ -46,9 +47,15 @@ class FormView {
         }
 
         //Ajout du bouton submit
-        formHTML += '<button type="submit">Valider</button>'
+        formHTML += '<button type="submit" onClick="submitForm()">Valider</button>'
 
         formHTML += "</form>"
+
+        formHTML += `<script>` + 
+        `function submitForm() {
+            document.getElementById("${this.form.id}").submit();
+        }`
+        + `</script>`
         return formHTML
     }
 

@@ -61,7 +61,7 @@ class Database{
             return err;
         })
         .finally(() => {
-            client.end();
+            this.client.end();
             return 0;
         });
     }
@@ -79,7 +79,7 @@ class Database{
             query += ` '${value}''`
         }
 
-        return client.query(query).then(res => {
+        return this.client.query(query).then(res => {
             console.log('Values successfully added');
         })
         .catch(err => {
@@ -87,7 +87,7 @@ class Database{
             return err;
         })
         .finally(() => {
-            client.end();
+            this.client.end();
             return 0;
         });
     }

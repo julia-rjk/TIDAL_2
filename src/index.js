@@ -17,7 +17,9 @@ var db;
 app.get('/', function(request, response) {
     response.sendFile(path.join(__dirname, "examples") + "/GenerateFormExample.html")
 });
-
+app.get('/example', function(request, response) {
+    response.sendFile(path.join(__dirname, "..") + "/newfile.html")
+});
 app.post('/', function(request, response) {
     // Appel de la base de donnée
     // Envoie des données du formulaires
@@ -32,8 +34,8 @@ function createForm(){
     if(form.name != undefined){
             form.addInput(new TextInputController("TextInput","test",10,100,true,true))
             form.addInput(new LabelController("Label","test","test"))
-            form.addInput(new MailInputController("MailInput","test",10,100,true,true))
-            form.addInput(new PasswordInputController("Password","test",10,100,true,true))
+            form.addInput(new MailInputController("MailInput","test",10,100,false,true))
+            form.addInput(new PasswordInputController("Password","test",10,100,false,true))
             // form.addInput(new TextAreaInput("516763","test",10,100,true,true))
             let formView = new FormView(form)
             formView.generateFile() 
