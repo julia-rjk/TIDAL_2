@@ -21,15 +21,21 @@ app.get('/example', function(request, response) {
     response.sendFile(path.join(__dirname, "..") + "/newfile.html")
 });
 app.post('/', function(request, response) {
+    console.log(request.body)
     // Appel de la base de donnée
     // Envoie des données du formulaires
-    db.addValues(request.body.json)
+    db.addValues(request.body)
+});
+
+app.get('/examples/:example_file_url', function(request, response) {
+    let file_location = request.params.example_file_url;
+    response.sendFile(path.join(__dirname, "examples/") + file_location)
 });
 
 
 function createForm(){
     // A remplir un exemple de formulaire
-    let form = new FormController("Nom", "/", "post");
+    let form = new FormController("Nom", "/", "post", 'exemple1.html');
 
     if(form.name != undefined){
             form.addInput(new TextInputController("TextInput","test",10,100,true,true))
@@ -39,16 +45,19 @@ function createForm(){
             // form.addInput(new TextAreaInput("516763","test",10,100,true,true))
             let formView = new FormView(form)
             formView.generateFile() 
+            // init de la base
+            
+            db.generateDatabase(form)
     }
     
-    // init de la base
-    db = new Database('localhost', 5432 , 'postgres', 'postgres', 'framework', form)
+   
 
 }
 
 
 var server = app.listen(8081, function () {
-    createForm();
-
+   
+   db = new Database('localhost', 5432 , 'postgres', 'postgres', 'framework')
+   createForm();
    console.log("Example app listening at http://%s:%s", 'localhost', 8081)
 })

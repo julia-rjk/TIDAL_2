@@ -4,14 +4,14 @@ class FormController{
 
     form;
 
-    constructor(name, action, method){
+    constructor(name, action, method, filename){
         let methodAllowed = ['get','post','put']
         if(typeof(name) != 'string' || typeof(action) != 'string' || typeof(method)!= 'string' || methodAllowed.indexOf(method.toLowerCase()) == -1){ 
             console.error("Error when creating form, please verify parameters.")
             return -1
         }
         else{
-            this.form = new Form(name, action, method);
+            this.form = new Form(name, action, method, filename);
             return this.form
         }
     }
