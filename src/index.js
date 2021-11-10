@@ -2,6 +2,8 @@ const FormController = require("./Controller/FormController");
 const TextInputController = require("./Controller/TextInputController");
 const FormView = require("./View/FormView");
 const LabelInputController = require("./Controller/LabelInputController");
+const MailInputController = require("./Controller/MailInputController");
+const PasswordInputController = require("./Controller/PasswordInputController");
 const path = require("path");
 var express = require('express');
 const Database = require("./Model/Database");
@@ -28,19 +30,17 @@ function createForm(){
     let form = new FormController("Nom", "/", "post");
 
     if(form.name != undefined){
-        let formView = new FormView(form)
-        if(formView.name != -1){
-            form.addInput(new TextInputController("516763","test",10,100,true,true))
-            form.addInput(new LabelInputController("test","test","test"))
-            form.addInput(new MailInputController("516763","test",10,100,true,true))
-            form.addInput(new PasswordInputController("516763","test",10,100,true,true))
-            form.addInput(new TextAreaInput("516763","test",10,100,true,true))
-            formView.generateFile()
-            }else console.error("error")
+            form.addInput(new TextInputController("TextInput","test",10,100,true,true))
+            form.addInput(new LabelInputController("LabelInput","test","test"))
+            form.addInput(new MailInputController("MailInput","test",10,100,true,true))
+            form.addInput(new PasswordInputController("Password","test",10,100,true,true))
+            // form.addInput(new TextAreaInput("516763","test",10,100,true,true))
+            let formView = new FormView(form)
+            formView.generateFile() 
     }
     
     // init de la base
-    db = new Database('localhost', 5432 , 'username', 'password', 'dbname', form)
+    db = new Database('localhost', 5432 , 'postgres', 'postgres', 'framework', form)
 
 }
 

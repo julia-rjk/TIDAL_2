@@ -25,49 +25,44 @@ class Database{
     }
 
     generateDatabase(){
-
         this.modelDB = {}
-        this.modelDB[this.form.name] = "VARCHAR(50)"
-
-        for(let item in this.form.inputs){
-
+        for(let item of this.form.inputs){
             switch(item.constructor.name){
                 case 'TextInput':
-                    this.modelDB[item.name] = "VARCHAR(50)"
+                    this.modelDB[item.name] = "character varying(200)"
                 case 'TextAreaInput':
-                    this.modelDB[item.name] = "VARCHAR(50)"
+                    this.modelDB[item.name] = "character varying(200)"
                 case 'SelectInput':
-                    this.modelDB[item.name] = "VARCHAR(50)"
+                    this.modelDB[item.name] = "character varying(200)"
                 case 'PasswordInput':
-                    this.modelDB[item.name] = "VARCHAR(50)"
+                    this.modelDB[item.name] = "character varying(200)"
                 case 'MailInput':
-                    this.modelDB[item.name] = "VARCHAR(50)"
+                    this.modelDB[item.name] = "character varying(200)"
                 case 'Label':
-                    this.modelDB[item.name] = "VARCHAR(50)"
+                    this.modelDB[item.name] = "character varying(200)"
                 default:
-                    this.modelDB[item.name] = "VARCHAR(50)"
+                    this.modelDB[item.name] = "character varying(200)"
             }
-
         }
-
         let query = ` CREATE TABLE ${this.form.name} (`
-
-        for(let value in Object.keys(this.modelDB)){
-
+        let i = 0;
+        console.log(Object.keys(this.modelDB).length)
+        for(let value of Object.keys(this.modelDB)){
+            
             query += ` ${value} ${this.modelDB[value]}`
-
+            i++;
+            if(i < Object.keys(this.modelDB).length)query += `,`
         }
-
         query += `);`
-        
-        client.query(query).then(res => {
+        console.log(query)
+        this.client.query(query).then(res => {
             console.log('Table is successfully created');
         })
         .catch(err => {
             console.error(err);
         })
         .finally(() => {
-            client.end();
+            this.client.end();
         });
     }
 
@@ -76,20 +71,16 @@ class Database{
         let query = `INSERT INTO ${this.form.name} (`
 
         for(let value in Object.keys(this.modelDB)){
-
             query += ` ${value} ${this.modelDB[value]}`
-
         }
 
         query += `VALUES(`
         for(let value in values){
-
             query += ` '${value}''`
-
         }
 
         client.query(query).then(res => {
-            console.log('Table is successfully created');
+            console.log('Values successfully added');
         })
         .catch(err => {
             console.error(err);
