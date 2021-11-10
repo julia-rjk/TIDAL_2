@@ -19,4 +19,4 @@ class MailInputView {
     }
 }
 
-module.exports = TextInputView;
+module.exports = MailInputView;

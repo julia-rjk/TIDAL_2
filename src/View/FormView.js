@@ -1,4 +1,9 @@
 const TextInputView = require("./TextInputView");
+const TextAreaInputView = require("./TextAreaInputView");
+const SelectInputView = require("./SelectInputView");
+const PasswordInputView = require("./PasswordInputView");
+const MailInputView = require("./MailInputView");
+const LabelInputView = require("./LabelInputView");
 var fs = require('fs');
 class FormView{
     constructor(form){
@@ -25,7 +30,7 @@ class FormView{
                 case 'MailInput':
                     formHTML += new MailInputView().html(this.form.inputs[i])
                 case 'Label':
-                    formHTML += new Label().html(this.form.inputs[i])
+                    formHTML += new LabelInputView().html(this.form.inputs[i])
                 default:
                     formHTML += ""
             }
