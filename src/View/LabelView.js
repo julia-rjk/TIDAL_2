@@ -9,7 +9,7 @@ class LabelView{
 
     html() {
         if(this.label !== null && this.label !== undefined)
-            return `<label `
+            return `<label `+ 
                 `name='${this.label.name ?? "'"}' ` +
                 `placeholder='${this.label.placeholder ?? "'"}' ` + `>` + this.label.value +"</label>"
     }
