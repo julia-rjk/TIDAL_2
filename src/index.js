@@ -1,12 +1,11 @@
 const FormController = require("./Controller/FormController");
 const TextInputController = require("./Controller/TextInputController");
 const FormView = require("./View/FormView");
-
+const LabelInputController = require("./Controller/LabelInputController");
 const path = require("path");
 var express = require('express');
 const Database = require("./Model/Database");
-const Form = require("./Model/Form");
-const TextInput = require("./Model/TextInput");
+const TextAreaInput = require("./Model/TextAreaInput");
 var app = express();
 app.use(express.json());
 app.use(express.urlencoded( { extended: false } )); // this is to handle URL encoded data
@@ -31,14 +30,15 @@ function createForm(){
     if(form.name != undefined){
         let formView = new FormView(form)
         if(formView.name != -1){
-            let formElement = new TextInputController("516763","test",10,100,true,true)
-            console.log(formElement)
-            if(formElement.name != undefined){
-                form.addInput(formElement)
-                formView.generateFile()
+            form.addInput(new TextInputController("516763","test",10,100,true,true))
+            form.addInput(new LabelInputController("test","test","test"))
+            form.addInput(new MailInputController("516763","test",10,100,true,true))
+            form.addInput(new PasswordInputController("516763","test",10,100,true,true))
+            form.addInput(new TextAreaInput("516763","test",10,100,true,true))
+            formView.generateFile()
             }else console.error("error")
-        }
     }
+    
     // init de la base
     db = new Database('localhost', 5432 , 'username', 'password', 'dbname', form)
 
