@@ -2,6 +2,8 @@ const Form = require("../Model/Form");
 
 class FormController{
 
+    form;
+
     constructor(name, action, method){
         let methodAllowed = ['get','post','put']
         if(typeof(name) != 'string' || typeof(action) != 'string' || typeof(method)!= 'string' || methodAllowed.indexOf(method.toLowerCase()) == -1){ 
