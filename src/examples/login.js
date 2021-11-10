@@ -1,26 +1,23 @@
-// import FormController from "../Controller/FormController"
-// import TextInputController  from "../Controller/TextInputController"
-// import FormView  from "../View/FormView"
-const FormController = require("../Controller/FormController");
-const TextInputController = require("../Controller/TextInputController");
-const FormView = require("../View/FormView");
+window.onload = () => {
+    fetch('../../newFile.html')
+        .then(function (response) {
+            // When the page is loaded convert it to text
+            return response.text()
+        })
+        .then(function (html) {
+            // Initialize the DOM parser
+            var parser = new DOMParser();
 
-function createForm() {
-    //Création du formulaire
-    let formController = new FormController("myForm", "/", "post");
+            // Parse the text
+            var doc = parser.parseFromString(html, "text/html");
 
-    //Création des input
-    let nomInput = new TextInputController("nom", "Votre nom", 5, 30, true, true);
+            //Récupération du form
+            var form = doc.getElementsByTagName("form")[0];
 
-    //Ajout des input
-    formController.addInput(nomInput);
-
-    //Création de la vue
-    let formView = new FormView(formController);
-    
-    //Récupération de l'html
-    let htmlGenere = formView.getHTML();
-    console.log(htmlGenere)
+            let conteneur = document.getElementById("conteneur-form");
+            conteneur.appendChild(form);
+        })
+        .catch(function (err) {
+            console.log('Failed to fetch page: ', err);
+        });
 }
-
-createForm()

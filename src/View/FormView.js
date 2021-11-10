@@ -44,6 +44,10 @@ class FormView {
             }
 
         }
+
+        //Ajout du bouton submit
+        formHTML += '<button type="submit">Valider</button>'
+
         formHTML += "</form>"
         return formHTML
     }
