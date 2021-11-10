@@ -4,6 +4,7 @@ const SelectInputView = require("./SelectInputView");
 const PasswordInputView = require("./PasswordInputView");
 const MailInputView = require("./MailInputView");
 const LabelView = require("./LabelView");
+const path = require("path");
 var fs = require('fs');
 
 class FormView {
@@ -60,7 +61,7 @@ class FormView {
     }
 
     generateFile() {
-        fs.writeFile('newfile.html', this.getHTML(), function (err) {
+        fs.writeFile(path.join(__dirname, "..")+`/examples/${this.form.filename}`, this.getHTML(), function (err) {
             if (err) throw err;
             console.log('File is created successfully.');
         });

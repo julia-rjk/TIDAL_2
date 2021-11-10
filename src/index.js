@@ -27,10 +27,15 @@ app.post('/', function(request, response) {
     db.addValues(request.body)
 });
 
+app.get('/examples/:example_file_url', function(request, response) {
+    let file_location = request.params.example_file_url;
+    response.sendFile(path.join(__dirname, "examples/") + file_location)
+});
+
 
 function createForm(){
     // A remplir un exemple de formulaire
-    let form = new FormController("Nom", "/", "post");
+    let form = new FormController("Nom", "/", "post", 'exemple1.html');
 
     if(form.name != undefined){
             form.addInput(new TextInputController("TextInput","test",10,100,true,true))

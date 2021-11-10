@@ -96,5 +96,5 @@ Julia  | Gestion du projet, modèle MVC, aide à la conception
 * Ce qui fonctionne :
     * 
 * Améliorations possibles
-    * 
+    * ajout de formulaires créés lors du lancement du serveur avec des routes dynamiques.
 
