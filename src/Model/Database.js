@@ -46,23 +46,23 @@ class Database{
         }
         let query = ` CREATE TABLE ${this.form.name} (`
         let i = 0;
-        console.log(Object.keys(this.modelDB).length)
         for(let value of Object.keys(this.modelDB)){
-            
             query += ` ${value} ${this.modelDB[value]}`
             i++;
             if(i < Object.keys(this.modelDB).length)query += `,`
         }
         query += `);`
         console.log(query)
-        this.client.query(query).then(res => {
+        return this.client.query(query).then(res => {
             console.log('Table is successfully created');
         })
         .catch(err => {
             console.error(err);
+            return err;
         })
         .finally(() => {
-            this.client.end();
+            client.end();
+            return 0;
         });
     }
 
@@ -79,14 +79,16 @@ class Database{
             query += ` '${value}''`
         }
 
-        client.query(query).then(res => {
+        return client.query(query).then(res => {
             console.log('Values successfully added');
         })
         .catch(err => {
             console.error(err);
+            return err;
         })
         .finally(() => {
             client.end();
+            return 0;
         });
     }
 
