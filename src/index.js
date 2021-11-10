@@ -21,7 +21,7 @@ app.get('/', function(request, response) {
 app.post('/', function(request, response) {
     // Appel de la base de donnée
     // Envoie des données du formulaires
-    //db.addValues(request.body.json)
+    db.addValues(request.body.json)
 });
 
 
