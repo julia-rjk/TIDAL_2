@@ -15,6 +15,7 @@ class FormView {
     getHTML() {
         let formHTML = "<form name='" + this.form.name + "' action='" + this.form.action + "' method='" + this.form.method + "'>"
 
+        formHTML +=  `<input name='form_name' value='${this.form.name}' hidden>`
 
         for (let inputController of this.form.inputs) {
 
