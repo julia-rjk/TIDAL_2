@@ -1,10 +1,9 @@
 
 const path = require("path");
 var express = require('express');
-// const Database = require("../../Model/Database");
 
 
-// db = new Database('localhost', 5432 , 'postgres', 'postgres', 'framework', form)
+const ModuleDb = require("./db")
 
 var app = express();
 app.use(express.json());
@@ -12,17 +11,11 @@ app.use(express.urlencoded( { extended: false } )); // this is to handle URL enc
 app.use(express.static(path.join(__dirname, "examples")));
 
 
-app.get('/', function(request, response) {
-    console.log("TEST")
-    // response.sendFile(path.join(__dirname, "examples") + "/GenerateFormExample.html")
-});
-app.get('/example', function(request, response) {
-    response.sendFile(path.join(__dirname, "..") + "/newfile.html")
-});
-app.post('/', function(request, response) {
+app.post('/connexion', function(request, response) {
     // Appel de la base de donnée
     // Envoie des données du formulaires
-    // db.addValues(request.body.json)
+    console.log("TEST")
+    ModuleDb.DB.addValues(request.body.json)
 });
 
 

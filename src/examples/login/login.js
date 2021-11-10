@@ -1,5 +1,5 @@
 window.onload = () => {
-    fetch('../../../newFile.html')
+    fetch('monFichier.html')
         .then(function (response) {
             // When the page is loaded convert it to text
             return response.text()
