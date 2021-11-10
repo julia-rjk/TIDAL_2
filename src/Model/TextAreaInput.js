@@ -2,7 +2,7 @@ class TextAreaInput{
     static NB_CREATED = 0;
     static ID_PREFIX = "textareainput";
     constructor ( name, placeholder, rows, cols, minLength, maxLength, disabled, required ){
-        this.id = TextInput.ID_PREFIX + (++TextInput.NB_CREATED).toString();
+        this.id = TextAreaInput.ID_PREFIX + (++TextAreaInput.NB_CREATED).toString();
         this.name = name;
         this.placeholder = placeholder;
         this.minLength = minLength;
