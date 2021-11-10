@@ -9,7 +9,7 @@ class TextInputController{
             return -1
         }
         else{
-            this.textInput = new TextInput( name, placeholder, min, max, isEnabled, isRequired )
+            this.textInput = new TextInput( name, placeholder, min, max, !isEnabled, isRequired )
             return this.textInput;
         }
     }
