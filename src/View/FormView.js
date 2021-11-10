@@ -1,31 +1,37 @@
 const TextInputView = require("./TextInputView");
 var fs = require('fs');
 class FormView{
-    constructor(form){
-        this.form = form;
+    constructor(formController){
+        this.form = formController;
     }
 
     getHTML(){
         let formHTML = "<form name='"+ this.form.name+"' action='"+ this.form.action+"' method='"+ this.form.method+"'>"
 
-        for (let i in this.form.inputs) {
 
-            let type = this.form.inputs[i].constructor.name;
+        for (let inputController of this.form.inputs) {
 
-            
+            let type = inputController.constructor.name;
+
             switch(type){
                 case 'TextInput':
-                    formHTML += new TextInputView().html(this.form.inputs[i])
+                    formHTML += new TextInputView(inputController).html();
+                    break;
                 case 'TextAreaInput':
-                    formHTML += new TextAreaInputView().html(this.form.inputs[i])
+                    formHTML += new TextAreaInputView(inputController).html();
+                    break;
                 case 'SelectInput':
-                    formHTML += new SelectInputView().html(this.form.inputs[i])
+                    formHTML += new SelectInputView(inputController).html();
+                    break;
                 case 'PasswordInput':
-                    formHTML += new PasswordInputView().html(this.form.inputs[i])
+                    formHTML += new PasswordInputView(inputController).html();
+                    break;
                 case 'MailInput':
-                    formHTML += new MailInputView().html(this.form.inputs[i])
+                    formHTML += new MailInputView(inputController).html();
+                    break;
                 case 'Label':
-                    formHTML += new Label().html(this.form.inputs[i])
+                    formHTML += new Label(inputController).html();
+                    break;
                 default:
                     formHTML += ""
             }
