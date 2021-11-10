@@ -4,7 +4,9 @@ class ScriptView{
     }
 
     html() {
-        
+        return `<script>` 
+
+        + `</script>`
     }
 
 }

@@ -1,7 +1,7 @@
 const FormController = require("./Controller/FormController");
 const TextInputController = require("./Controller/TextInputController");
 const FormView = require("./View/FormView");
-const LabelInputController = require("./Controller/LabelInputController");
+const LabelController = require("./Controller/LabelController");
 const MailInputController = require("./Controller/MailInputController");
 const PasswordInputController = require("./Controller/PasswordInputController");
 const path = require("path");
@@ -31,7 +31,7 @@ function createForm(){
 
     if(form.name != undefined){
             form.addInput(new TextInputController("TextInput","test",10,100,true,true))
-            form.addInput(new LabelInputController("LabelInput","test","test"))
+            form.addInput(new LabelController("Label","test","test"))
             form.addInput(new MailInputController("MailInput","test",10,100,true,true))
             form.addInput(new PasswordInputController("Password","test",10,100,true,true))
             // form.addInput(new TextAreaInput("516763","test",10,100,true,true))
