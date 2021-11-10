@@ -15,4 +15,4 @@ class LabelInputView{
     }
 }
 
-module.exports = labelInputView;
+module.exports = LabelInputView;

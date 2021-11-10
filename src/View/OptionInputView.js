@@ -15,4 +15,4 @@ class OptionInputView{
     }
 }
 
-module.exports = optionInputView;
+module.exports = OptionInputView;
