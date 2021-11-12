@@ -17,7 +17,7 @@ class TextAreaInputView {
                 `rows='${this.textAreaInput.rows ?? "'"}' ` +
                 `cols='${this.textAreaInput.cols ?? "'"}' ` +
                 `${this.textAreaInput.disabled ? " disabled " : "'"}' ` +
-                `required='${this.textAreaInput.required}'>`
+                `required='${this.textAreaInput.required}'></textarea>` 
     }
 }
 
