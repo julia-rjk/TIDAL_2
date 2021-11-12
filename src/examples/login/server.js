@@ -12,9 +12,14 @@ app.use(express.static(path.join(__dirname, "examples")));
 
 
 app.post('/connexion', function(request, response) {
-    // Appel de la base de donnée
-    // Envoie des données du formulaires
-    ModuleDb.DB.addValues(request.body)
+
+    if (ModuleDb.DB.addValues(request.body) == 0) {
+        response.sendStatus(200);
+    } else {
+        //Erreur insertion
+        response.sendStatus(400);
+    }
+    
 });
 
 

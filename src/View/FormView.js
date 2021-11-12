@@ -9,8 +9,8 @@ var fs = require('fs');
 
 class FormView {
 
-    constructor(formController) {
-        this.form = formController;
+    constructor(form) {
+        this.form = form;
     }
 
     getHTML() {
