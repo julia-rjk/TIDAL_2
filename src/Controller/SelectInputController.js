@@ -2,9 +2,7 @@ const SelectInput = require("../Model/SelectInput");
 
 class SelectInputController{
     constructor( name ) {
-        // On vérifie si name et placeholder sont des string
-        // Si min et max sont des nombres
-        // Si isEnable et isRequired sont des booléens
+        // On vérifie si name est un string
         if(typeof(name) != "string" ) { 
             return -1
         }else{

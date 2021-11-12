@@ -1,14 +1,14 @@
 const MailInput = require("../Model/MailInput");
 
 class MailInputController{
-    constructor( name, placeholder, min, max, isEnabled, isRequired ) {
+    constructor( name, placeholder, minLength, maxLength, disabled, required ) {
         // On vérifie si name et placeholder sont des string
-        // Si min et max sont des nombres
-        // Si isEnable et isRequired sont des booléens
-        if(typeof(name) != "string" || typeof(isRequired) != 'boolean' || typeof(isEnabled) != 'boolean' || typeof(min) != 'number' || typeof(max) != 'number') {
+        // Si minLength et maxLength sont des nombres
+        // Si disabled et required sont des booléens
+        if(typeof(name) != "string" || typeof(required) != 'boolean' || typeof(disabled) != 'boolean' || typeof(minLength) !='number' || typeof(maxLength) != 'number') {
             return -1}
         else{
-            this.mailInput = new MailInput( name, placeholder, min, max, isEnabled, isRequired )
+            this.mailInput = new MailInput( name, placeholder, minLength, maxLength, disabled, required )
             return this.mailInput;
         }
     }

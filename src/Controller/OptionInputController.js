@@ -2,9 +2,7 @@ const OptionInputController = require("../Model/OptionInputController");
 
 class OptionInputController{
     constructor( name, value) {
-        // On vérifie si name et placeholder sont des string
-        // Si min et max sont des nombres
-        // Si isEnable et isRequired sont des booléens
+        // On vérifie si name et value sont des string
         if(typeof(name) != "string" || typeof(value) != 'string' ) {
             return -1
         }

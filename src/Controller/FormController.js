@@ -35,7 +35,6 @@ class FormController{
     }
 
     addInput(input){
-        // VERIFIER l INPUT 
         this.form.addInput(input)
     }
 
