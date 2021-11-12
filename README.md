@@ -100,5 +100,6 @@ Julia  | Gestion du projet, modèle MVC, aide à la conception
     * Création d'une table en base de données prenant les champs du formulaires et dont le nom est celui du formulaire
     * Ajout des données dans les tables grâce à un bouton submit ajouté automatiquement à chaque formulaire
 * Améliorations possibles
-    * ajout de formulaires créés lors du lancement du serveur avec des routes dynamiques.
+    * Création de formulaire par requête
+    * Génération de code javascript pour ajouter des validations poussés (avec des regex etc...)
 
