@@ -102,4 +102,5 @@ Julia  | Gestion du projet, modèle MVC, aide à la conception
 * Améliorations possibles
     * Création de formulaire par requête
     * Génération de code javascript pour ajouter des validations poussés (avec des regex etc...)
+    * Séparation du serveur de la création des formulaires
 
