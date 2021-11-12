@@ -51,11 +51,11 @@ node src/index.js
 ---
 Obligatoire : 
 * Form ( name, action,  method )
-* TextInput ( name, placeholder, min, max, isEnabled, isRequired )
-* PasswordInput ( name, placeholder, min, max, isEnabled, isRequired )
-* MailInput ( name, placeholder, min, max, isEnabled, isRequired  )
+* TextInput ( name, placeholder, minLength, maxLength, disabled, required )
+* PasswordInput ( name, placeholder, minLength, maxLength, disabled, required )
+* MailInput ( name, placeholder, minLength, maxLength, disabled, required  )
 
-* TextAreaInput ( name, placeholder, rows, cols, min, max, isEnabled, isRequired )
+* TextAreaInput ( name, placeholder, rows, cols, minLength, maxLength, disabled, required )
 * LabelInput ( name, value, placeholder)
 * SelectInput ( name, options = [ OptionInput ] )
 * OptionInput ( selectID (?), name, value)
@@ -94,7 +94,11 @@ Julia  | Gestion du projet, modèle MVC, aide à la conception
 
 ### Résulat final
 * Ce qui fonctionne :
-    * 
+    * Le serveur express avec des endpoints
+    * Création de formulaire
+    * Génération de fichier html par formulaire créée
+    * Création d'une table en base de données prenant les champs du formulaires et dont le nom est celui du formulaire
+    * Ajout des données dans les tables grâce à un bouton submit ajouté automatiquement à chaque formulaire
 * Améliorations possibles
     * ajout de formulaires créés lors du lancement du serveur avec des routes dynamiques.
 
