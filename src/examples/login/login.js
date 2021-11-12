@@ -1,3 +1,8 @@
+function submitForm() {
+    console.log("submit !")
+    window.location.href = "http://127.0.0.1:5500/src/examples/login/index.html";
+}
+
 window.onload = () => {
     fetch('monFichier.html')
         .then(function (response) {

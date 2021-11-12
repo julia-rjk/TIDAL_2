@@ -9,7 +9,7 @@ const ModuleDb = require("./db")
 
 function createForm() {
     //Création du formulaire
-    let formController = new FormController("myForm", "http://localhost:8081/connexion", "post", "login/monFichier.html");
+    let formController = new FormController("UTILISATEUR", "http://localhost:8081/connexion", "post", "login/monFichier.html");
 
     //Création des input/label
     let mailInput = new MailInputController("id", "exemple@gmail.com", 5, 30, false, false);

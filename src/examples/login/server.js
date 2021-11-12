@@ -14,8 +14,7 @@ app.use(express.static(path.join(__dirname, "examples")));
 app.post('/connexion', function(request, response) {
     // Appel de la base de donnée
     // Envoie des données du formulaires
-    console.log("TEST")
-    ModuleDb.DB.addValues(request.body.json)
+    ModuleDb.DB.addValues(request.body)
 });
 
 
