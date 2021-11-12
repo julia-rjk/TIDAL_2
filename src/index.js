@@ -53,7 +53,7 @@ function createForm(){
     let secondForm = new FormController("second_form", "/", "post", 'second_form.html');
     
     if(secondForm.name != undefined){
-        secondForm.addInput(new TextAreaInputController("commentaire", "commentaire", 3, 3, 10, 100, false, true));
+        secondForm.addInput(new TextAreaInputController("commentaire", "commentaire", 10, 30, 10, 100, false, true));
         let secondFormView = new FormView(secondForm)
         secondFormView.generateFile() 
         // init de la base
