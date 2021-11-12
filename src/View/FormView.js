@@ -48,15 +48,10 @@ class FormView {
         }
 
         //Ajout du bouton submit
-        formHTML += '<button type="submit" onClick="submitForm()">Valider</button>'
+        formHTML += '<button type="submit">Valider</button>'
 
         formHTML += "</form>"
-
-        formHTML += `<script>` + 
-        `function submitForm() {
-            document.getElementById("${this.form.id}").submit();
-        }`
-        + `</script>`
+        
         return formHTML
     }
 
